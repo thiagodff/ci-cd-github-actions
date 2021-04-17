@@ -1,3 +1,7 @@
+# Projeto
+
+Esse projeto é um template de React com a estrutura, eslint e prettier configurados.
+
 # CI e CD
 
 ## CI - Continuos Integration - Integração Contínua

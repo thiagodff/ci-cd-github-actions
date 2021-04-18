@@ -2,6 +2,14 @@
 
 Esse projeto é um template de React com a estrutura, eslint e prettier configurados.
 
+## Pipeline que iremos configurar para esse projeto
+
+yarn -> yarn lint -> yarn test -> yarn build
+
+1. Uma ferramenta de CI/CD
+2. Um servidor para rodar a pipeline
+3. Um servidor de deploy
+
 # CI e CD
 
 ## CI - Continuos Integration - Integração Contínua
@@ -26,7 +34,7 @@ A prática/processo de entregar o resultado do código para o usuário final.
 
 Para trabalhar com Continuos Deployment é necessário que o software tenha um preparo para aceitar a nova aplicação, pois algumas features nós podemos querer só estejam acessíveis após um certo horário, por exemplo.
 
-Muitas empresas mantém o deploy contínuo desabilitado para ter um melhor controle do "virar a chave" para a aplicação ir pro ar. Por exemplo, decidir colocar no ar as novas features somente no horário em que menos estão utilizando sua aplicação.
+Muitas empresas mantém o deploy contínuo desabilitado para ter um melhor controle do "virar a chave" para a aplicação ir pro ar. Por exemplo, decidir colocar no ar as novas features somente no horário em que menos pessoas estão utilizando sua aplicação.
 
 ## Feature Flag
 
@@ -39,7 +47,6 @@ Geralmente essa funcionalidade é reaproveitada para controlar o que o usuário 
 ## Feature Branching
 
 O mesmo problema da questão anterior mas resolvido utilizado branch's, que só irão para master no momento ideal, porém tem alguns problemas como o código dessa branch ficar desatualizado com o da master.
-w
 
 # Pipeline
 
@@ -55,7 +62,7 @@ Steps:
   - yarn
   - post-install
 - CI
-  - Lint (pois é mais rápido do que os testes)
+  - Lint (vem primeiro pois é mais rápido do que os testes)
   - Testes
 
 Fluxo para toda branch com PR criada:
@@ -64,7 +71,7 @@ Branches -> CI -> CD -> CDeployment -> Url Preview -> Master
 
 Master -> CI -> CD -> CDeployment
 
-![Processo de CI CD](./assets/ci_cd.jpg "CI CD process")
+![Processo de CI CD](./assets/ci_cd.jpg 'CI CD process')
 
 A parte do monitor entra os KPI que são os indicadores do software, se estão sendo bem atendidos.
 
@@ -96,7 +103,7 @@ Ferramentas para React Native
 
 ## Jenkins
 
-Uma das ferramentas mais utilizadas que integra com praticamente qualquer linguagem.
+Uma das ferramentas mais utilizadas que integra com praticamente qualquer linguagem. É uma ferramenta bem completa e precisa de várias configurações para funcionar, se sua aplicação precisa de algo como o Jenkins muito provavelmente existirá um time de CRE infra/DevOps no time para cuidar disso. É uma ferramenta pra quando precisamos escalar nossos projetos, geralmente custa bem mais caro do que um plano do github actions.
 
 Ele é self hosted, ou seja, você deve instalar em sua máquina e rodar localmente, dentro dele você pode configurar um novo projeto.
 

@@ -1,0 +1,31 @@
+name: CI
+
+# triggers do github action para falar que ira acionar a pipeline em quais eventos
+on:
+  push:
+    branches: ['**']
+
+# agora definiremos os stages
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    # conseguimos definir algumas informacoes para serem recuperadas posteriormente
+    strategy:
+      matrix:
+        # cuidado para nao empolgar e gastar minutos (dinheiro) de forma desncessaria
+        # ou acabar atrasando outras builds
+        node-version: [12.x]
+
+    steps:
+      # precisamos utilizar uma action de checkout para conseguir-mos entrar no projeto
+      # quando usamos esse actions/, podemos utilizar actions do proprio github
+      - uses: actions/checkout@v2
+      - name: Use Node.Js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn
+      - run: yarn lint
+      - run: yarn test
+      - run: yarn build

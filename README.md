@@ -10,6 +10,18 @@ yarn -> yarn lint -> yarn test -> yarn build
 2. Um servidor para rodar a pipeline
 3. Um servidor de deploy
 
+## O merge deve ser bloqueado para branchs que nao passarem no CI
+
+Basta ir em settings -> Branches -> Branch protection rule -> Add rule
+
+Selecione a opção: "Require status check to pass before merging" e "Require branches to be up to date before merging"
+
+E logo abaixo selecione os fluxos de CI que serão obrigatórios passarem
+
+## URL de preview
+
+Como a Vercel oferece de uma maneira facilitada a preview do URL para cada branch com PR, podemos utilizá-la com esse propósito e ainda sim adicionar um fluxo de CD para outro serviço para fazer o deploy.
+
 # CI e CD
 
 ## CI - Continuos Integration - Integração Contínua

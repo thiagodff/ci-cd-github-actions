@@ -29,3 +29,14 @@ jobs:
       - run: yarn lint
       - run: yarn test
       - run: yarn build
+
+      # caso queira que o CD na vercel seja feito pelo github actions basta configurar
+      # - name: Vercel Action
+      #   uses: amondnet/vercel-action@v20.0.0
+      #   with:
+      #     vercel-token: asd
+      #     vercel-project-id: asd
+      #     vercel-org-id: asd
+
+      # lembre-se: a propria Vercel faz todo o papel de cd
+      # utilizar o github actions para isso somente ira gastar seus minutos
